@@ -1,0 +1,189 @@
+/*
+
+====================== MEMO ==========================
+
+custom yellow : f1c965
+custom violet : 69509c
+
+brush font : 'Gloss And Bloom', sans-serif
+normal font : 'Raleway', sans-serif
+
+*/
+
+
+
+/*  
+
+============================   IMPORTS   ============================
+
+*/
+@font-face {
+    font-family: 'Gloss And Bloom';
+    src: url('/font/Gloss_And_Bloom.ttf')  format('truetype');
+}
+
+$breakpoints: (
+    "small": 300px,
+    "medium": 960px,
+    "large": 1280px,
+);
+@mixin media-min($_key) {
+    @media screen and (min-width: map-get($breakpoints, $_key)) {
+        @content;
+    }
+}
+
+$radius: 30px;
+@mixin radius{
+    border-radius: $radius;
+}
+@mixin radius-left{
+    border-radius: $radius $radius 0 0;
+}
+@mixin radius-top{
+    border-radius: $radius $radius 0 0;
+}
+@mixin radius-bottom{
+    border-radius: $radius 0 $radius 0;
+}
+@mixin box-shadow-high{
+    box-shadow: 0px 20px 40px 2px rgba(0,0,0,0.4);
+}
+@mixin bef-config{
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+@mixin brushfont{
+    font-family: 'Gloss And Bloom', sans-serif;
+}
+@mixin josefinfont{
+    font-family: 'Josefin Sans', sans-serif;
+}
+@mixin gradientYellow{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(249,151,63,1) 0%, rgba(249,210,45,1) 90% );
+    background-size: cover; 
+}
+
+@mixin fontSize1{
+    font-size: 1rem;
+    line-height: 1rem;
+}
+@mixin fontSize1{
+    font-size: 1rem;
+    line-height: 1rem;
+}
+@mixin fontSize2{
+    font-size: 2rem;
+    line-height: 2rem;
+}
+@mixin fontSize3{
+    font-size: 3rem;
+    line-height: 3rem;
+}
+@mixin fontSize4{
+    font-size: 5rem;
+    line-height: 2rem;
+}
+@mixin fontSizeCustom($_size){
+    font-size: $_size;
+    line-height: $_size;
+}
+
+/*  
+
+============================   MISE EN FORME   ============================
+
+*/
+
+
+
+.brushfont{
+    font-family: 'Gloss And Bloom', sans-serif;
+}
+
+.title1{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2rem ;
+}
+.title2{
+    font-family: 'Gloss And Bloom', sans-serif;
+    font-size: 3rem ;
+    line-height: 2rem;
+}
+
+
+
+html{
+    background: #101833;
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    a {
+        text-decoration: none !important;
+    }
+    body{
+        background: #101833;
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+    }
+    .page{
+        
+        @include radius-top;
+        @include gradientYellow;
+        @include media-min("small"){
+        }
+        @include media-min("medium"){
+            width: 100vw;
+            height: 84vh;
+        }
+    }
+}
+
+.catch-top-app{
+    position: relative;
+    height: 10vh;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+    .catch{
+        font-family: 'Josefin Sans', sans-serif;
+        @include fontSize2;
+        color: #ffffff;
+    }
+    .name{
+        padding-top: 15px;
+        font-family: 'Gloss And Bloom', sans-serif;
+        @include fontSize3;
+        color: #f1c965;
+    }
+}
+
+// ===============   HOME
+
+.first-presentation{
+    text-align: center;
+    .name{
+        position:relative;
+        z-index: 99;
+        @include josefinfont;
+        @include fontSize2;
+    }
+    .dev{
+        position:relative;
+        z-index: 99;
+        @include josefinfont;
+        @include fontSize3;
+    }
+    .crea{
+        @include brushfont;
+        @include fontSizeCustom(15rem);
+        z-index: 0;
+        position: absolute;
+        width: 100%;
+        top: calc(50% - 7rem);
+        color: #f7cb59;
+    }
+}
