@@ -34,11 +34,15 @@ $breakpoints: (
 }
 
 $radius: 30px;
+
 @mixin radius{
     border-radius: $radius;
 }
+@mixin radius-right{
+    border-radius: 0 $radius $radius 0;
+}
 @mixin radius-left{
-    border-radius: $radius $radius 0 0;
+    border-radius: $radius 0 0 $radius;
 }
 @mixin radius-top{
     border-radius: $radius $radius 0 0;
@@ -65,6 +69,11 @@ $radius: 30px;
 }
 @mixin gradientYellow{
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(249,151,63,1) 0%, rgba(249,210,45,1) 90% );
+    background-size: 110%; 
+    background-position-x: 5%;
+}
+@mixin gradientViolet{
+    background: linear-gradient(30deg, #6A47A8, #101833);
     background-size: cover; 
 }
 
@@ -86,12 +95,34 @@ $radius: 30px;
 }
 @mixin fontSize4{
     font-size: 5rem;
-    line-height: 2rem;
+    line-height: 4.5rem;
 }
 @mixin fontSizeCustom($_size){
     font-size: $_size;
     line-height: $_size;
 }
+/*  
+
+============================   INITIALIZE   ============================
+
+*/
+.button-group .button:first-child{
+    @include radius-left;
+}
+.button-group .button:last-child{
+    @include radius-right;
+}
+.button{
+    border: none;
+}
+
+
+
+
+
+
+
+
 
 /*  
 
@@ -99,22 +130,28 @@ $radius: 30px;
 
 */
 
+h1{margin:0;}
 
+.radius{ @include radius;}
 
-.brushfont{
-    font-family: 'Gloss And Bloom', sans-serif;
+.brushfont{ font-family: 'Gloss And Bloom', sans-serif; }
+.secNormalFont{ font-family: 'Josefin Sans', sans-serif; }
+
+.fs_1{@include fontSize1;}
+.fs_2{@include fontSize2;}
+.fs_3{@include fontSize3;}
+.fs_4{@include fontSize4;}
+.fc_w{color: #ffffff;}
+
+.gradientDark{ @include gradientViolet}
+.gradientLight{@include gradientYellow}
+
+.shadow1 {
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.35);
 }
-
-.title1{
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 2rem ;
+.shadow2 {
+    box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.6);
 }
-.title2{
-    font-family: 'Gloss And Bloom', sans-serif;
-    font-size: 3rem ;
-    line-height: 2rem;
-}
-
 
 
 html{
@@ -131,7 +168,7 @@ html{
         font-size: 18px;
     }
     .page{
-        
+        overflow: hidden;
         @include radius-top;
         @include gradientYellow;
         @include media-min("small"){
@@ -187,3 +224,5 @@ html{
         color: #f7cb59;
     }
 }
+
+// ===============   PRODUCTION
