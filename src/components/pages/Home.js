@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
 
 import {topMsgAction} from "../../redux/actions/index"
+import {staggerBottom, popUpAnimOut, popUpAnimIn} from '../custom-functions/animations'
 
 //import {Link } from 'react-router-dom'
 //import {actionName} from "../actions"
@@ -12,17 +13,34 @@ class Home extends Component {
     componentWillMount(){
         this.props.topMsgAction('World')
     }
+    componentDidMount(){
+        staggerBottom(".coat .letter")
+        popUpAnimIn(".first-presentation .name", 1.2, 1.3)
+        popUpAnimOut(".first-presentation .dev", 1.2, 1.3)
+    }
+    componentDidUpdate(){
+        //staggerBottom(".coat .letter")
+    }
 
   render() {
-    console.log('====================')
-    console.log(this.props.match)
+    const coatCreative = "Créatif".split('').map((letter,i)=><span key={i} className="letter">{letter}</span>);
     return (
-        <div className='page'>
+        <div id='page'>
             <div className='row h-100 align-items-center'>
                 <div className='col-12 first-presentation'>
                     <div className="name">David Simoes Silva</div>
                     <div className="dev">{"<"}Développeur front-end {"/>"}</div>
-                    <div className="crea">Créatif</div>
+                    <div className="crea">
+                        <span className='coat coat1'>
+                            {coatCreative}
+                        </span>
+                        <span className='coat coat2'>
+                            {coatCreative}
+                        </span>
+                        <span className='coat coat3'>
+                            {coatCreative}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

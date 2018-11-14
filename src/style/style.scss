@@ -72,6 +72,13 @@ $radius: 30px;
     background-size: 110%; 
     background-position-x: 5%;
 }
+@mixin gradientYellowLinear{
+    background: linear-gradient(45deg,rgba(249,210,45,1) 0%, rgba(249,151,63,1) 100%, rgba(249,210,45,1) 200% );
+    background-size: 200%; 
+    background-position-x: 0%;
+    @include transition1;
+}
+
 @mixin gradientViolet{
     background: linear-gradient(30deg, #6A47A8, #101833);
     background-size: cover; 
@@ -101,6 +108,9 @@ $radius: 30px;
     font-size: $_size;
     line-height: $_size;
 }
+@mixin transition1{
+    transition: 0.15s ease-out;
+}
 /*  
 
 ============================   INITIALIZE   ============================
@@ -108,12 +118,28 @@ $radius: 30px;
 */
 .button-group .button:first-child{
     @include radius-left;
+    border-left: none;
 }
 .button-group .button:last-child{
     @include radius-right;
 }
 .button{
     border: none;
+    border-left: solid rgb(104, 70, 166) 1px;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.5);
+}
+
+#nice-scroll {
+	height: 50px;
+	width: 5px;
+	border-radius: 5px;
+	background: red;
+	position: absolute; /* important */
+	right: 0px;
+}
+.letter{
+    position: relative;
+    display: inline-block;
 }
 
 
@@ -123,12 +149,6 @@ $radius: 30px;
 
 
 
-
-/*  
-
-============================   MISE EN FORME   ============================
-
-*/
 
 h1{margin:0;}
 
@@ -145,13 +165,11 @@ h1{margin:0;}
 
 .gradientDark{ @include gradientViolet}
 .gradientLight{@include gradientYellow}
+.gradientLightLinear{@include gradientYellowLinear}
+.gradientLightLinear:hover{background-position-x: 100%; @include transition1;}
 
-.shadow1 {
-    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.35);
-}
-.shadow2 {
-    box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.6);
-}
+.shadow1 { box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.35); }
+.shadow2 { box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.6); }
 
 
 html{
@@ -167,14 +185,15 @@ html{
         font-family: 'Raleway', sans-serif;
         font-size: 18px;
     }
-    .page{
-        overflow: hidden;
+    #page{
+        overflow-x: hidden;
+	    overflow-y: scroll;
         @include radius-top;
         @include gradientYellow;
         @include media-min("small"){
         }
         @include media-min("medium"){
-            width: 100vw;
+            width: calc(100% + 17px); /* change to 17px */
             height: 84vh;
         }
     }
@@ -195,6 +214,11 @@ html{
         font-family: 'Gloss And Bloom', sans-serif;
         @include fontSize3;
         color: #f1c965;
+    }
+    .letter{
+        position: relative;
+        display: inline-block;
+
     }
 }
 
@@ -222,6 +246,17 @@ html{
         width: 100%;
         top: calc(50% - 7rem);
         color: #f7cb59;
+        .coat {
+            position: absolute;
+            left: 0;
+            width: 100%;
+        }
+        .coat:nth-child(1){
+            color: #2AF598;
+        }
+        .coat:nth-child(2){
+            color: #8A6AC2;
+        }
     }
 }
 

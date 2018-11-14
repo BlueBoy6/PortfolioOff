@@ -2,21 +2,29 @@ import React, { Component } from 'react'
 import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
 import {topMsgAction,productionsResumeHead } from "../../redux/actions/index"
-import GridComponent from "./small-components/grid-component"
+import GridComponent from "../small-components/grid-component"
+
+import {NiceScrollPage} from "../custom-functions/functions-design"
+
 
 
 class Productions extends Component {
 
   componentWillMount(){
-    this.props.topMsgAction("Productions")
-    this.props.productionsResumeHead()
+    this.props.topMsgAction("Productions");
+    this.props.productionsResumeHead();
   }
+  componentDidMount(){}
 
+  resumeClicked(event){
+    console.log(event)
+  }
 
   render() {
     return (
-      <div className='page'>
-        <GridComponent dataResume={this.props.productionsResumeReducer} />
+      <div id='page'>
+        <GridComponent resumeClicked={this.resumeClicked.bind(this)} dataResume={this.props.productionsResumeReducer} />
+        <div id="nice-scroll"></div>
       </div>
     )
   }
