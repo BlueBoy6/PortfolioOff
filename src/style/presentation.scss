@@ -43,6 +43,8 @@ $radius: 30px;
 
 @mixin box-shadow-high{ box-shadow: 0px 20px 40px 2px rgba(0,0,0,0.4); }
 @mixin textshadow{text-shadow: 0px 1px 1px rgba(0,0,0,0.5);}
+@mixin coloryellow{ color: #f1c965;}
+
 
 @mixin bef-config{
     content: '';
@@ -104,51 +106,55 @@ $radius: 30px;
 
 */
 
-.vignet{
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    @include transition1;
-    opacity: 0;
-    background-position-y: 50%;
-    .date, .title, .technos{position:relative; z-index: 99;}
 
-    .pins{
-        position: relative;
-        display: inline-block;
-    }
+
+.header{
+    height: 50vh;
+    width: 100%;
+    left: 15px;
+    position: relative;
+    z-index : 999;
+    background-size: cover;
+    transform-origin: 50% 0%!important;
+    overflow: hidden;
+    @include radius;
+    .title{ text-align: center; position: relative; z-index : 999;}
     .vignet-fader{
         position: absolute;
         width:100%;
         height: 100%;
         left: 0;
         top: 0;
-        background: linear-gradient(30deg, rgba(107,71,168,1) -20%, rgba(16,24,51,0.75));
+        background: linear-gradient(30deg, rgba(107,71,168,0.9) -40%, rgba(16,24,51,0.75));
         background-size: cover; 
     }
-    .vignet-category{ 
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        align-items: center;
-        display: flex;
-        position: absolute; 
-        z-index: 0; 
-        .fs_c{
-            position: relative;
-            width: 100%;
-            text-align: center;
-            color: rgba(0,0,0,0.1);
-            @include fontSizeCustom(11rem);
-        }
+}
+.badges-production{
+
+}
+.project-presentation{
+    position: relative;
+    font-style: italic;
+    .quotes, .quotes-in {
+        position: absolute;
+        height: 130%;
+        top: -40%;
+        opacity: 0.5;
+        left: -40px;
+        filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 1));
     }
+    .quotes-in{
+        opacity: 0.9;
+        left: -25px;
+        filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.6));
+    }
+    
 }
-.vignet-container{
-    transform: scale(1);
-    @include transition1;
-}
-.vignet-container:hover{
-    transform: scale(0.99);
-    @include transition1;
+
+.project-presentation .row{
+    @include gradientViolet;
+    @include coloryellow;
+    @include radius;
+    overflow: hidden;
+    position: relative;
 }

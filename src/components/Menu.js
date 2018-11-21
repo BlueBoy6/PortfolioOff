@@ -13,20 +13,21 @@ class Menu extends Component {
 
   render() {
     return (
-
-    <div className='menu'>
-      <div className="btn-group w-100" role="group" aria-label="First group">
-          {
-            menuData.map((item,i)=>{
-              var menuLength = menuData.length;
-              return(
-                <NavLink key={i} style={{width: `calc(100%/${menuLength})`}} type="button" className="btn py-4" to={item.link}>
-                  <span>{item.name}</span>
-                </NavLink>
-              )
-            })
-          }
-      </div>
+    <div className='row container-menu justify-content-center'>
+      <div className='menu'>
+        <div className="btn-group w-100" role="group" aria-label="First group">
+            {
+              menuData.map((item,i)=>{
+                var menuLength = menuData.length;
+                return(
+                  <NavLink key={i} style={{width: `calc(100%/${menuLength})`}} type="button" className="btn py-4" to={item.link}>
+                    <span>{item.name}</span>
+                  </NavLink>
+                )
+              })
+            }
+        </div>
+      </div>  
     </div>
     )
   }

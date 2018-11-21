@@ -15,8 +15,8 @@ class Home extends Component {
     }
     componentDidMount(){
         staggerBottom(".coat .letter")
-        popUpAnimIn(".first-presentation .name", 1.2, 1.3)
-        popUpAnimOut(".first-presentation .dev", 1.2, 1.3)
+        popUpAnimIn(".first-presentation .name", 1.2, 0.3)
+        popUpAnimOut(".first-presentation .dev", 1.2, 0.3)
     }
     componentDidUpdate(){
         //staggerBottom(".coat .letter")

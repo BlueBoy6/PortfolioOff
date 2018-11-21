@@ -1,5 +1,5 @@
  import {NAVIGATION, FAKE} from "./actions-types"
- import productionsResume from "../../data/productionsResume.json"
+ import {productionsIndex} from "../../data/content-production/productionsIndex"
 
  export function topMsgAction(name){
     return function(dispatch){
@@ -10,22 +10,39 @@
     }
  };
 
-export function productionsResumeHead(){
+export function productionsResumeHead(resumeSelected){
     return function(dispatch){
+        const justResumeForVignets = [];
+        productionsIndex.forEach((item)=>{
+            justResumeForVignets.push({
+                id : item.id,
+                title : item.title,
+                coverImg : item.coverImg,
+                category : item.category,
+                date : item.date,
+                technos : item.technos
+            });
+        })
+
         dispatch({
             type : NAVIGATION.MY_PRODUCTIONS,
-            payload : productionsResume
+            payload : justResumeForVignets
         });
     }
-}
+};
 
-export function fakeAction(fakeMsg){
+export function selectionResume(pageId){
+
+    // Trouve l'objet ayant pour id le numéro de la page
+    var prod = productionsIndex.find((obj)=>{
+        return obj.id === Number(pageId);
+    });
     return function(dispatch){
         dispatch({
-            type: FAKE.ACTION,
-            payload: `FAKE ACTION TEST WITH YOUR ARG : ${fakeMsg}` 
-        })
+            type : NAVIGATION.SELECTED_VIGNET,
+            payload : prod
+        });
     }
-}
+};
 
 

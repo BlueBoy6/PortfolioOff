@@ -1,30 +1,37 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
-import {topMsgAction,productionsResumeHead } from "../../redux/actions/index"
-import GridComponent from "../small-components/grid-component"
 
-import {NiceScrollPage} from "../custom-functions/functions-design"
+// ========== ACTIONS IMPORTS
+import {topMsgAction,productionsResumeHead } from "../../redux/actions/index"
+
+// ========== ORGANISM IMPORTS
+import GridComponent from "../_Organism/grid-component"
 
 
 
 class Productions extends Component {
+  constructor(){
+    super()
+    this.state = {
+
+    }
+  }
 
   componentWillMount(){
     this.props.topMsgAction("Productions");
     this.props.productionsResumeHead();
   }
-  componentDidMount(){}
-
-  resumeClicked(event){
-    console.log(event)
+  componentDidMount(){
+    
   }
 
+
   render() {
+
     return (
       <div id='page'>
-        <GridComponent resumeClicked={this.resumeClicked.bind(this)} dataResume={this.props.productionsResumeReducer} />
-        <div id="nice-scroll"></div>
+        <GridComponent dataResume={this.props.productionsResumeReducer} />
       </div>
     )
   }
@@ -39,7 +46,8 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = (state) => {
     return {
       topMsgUrlSplitedReducer : state.topMsgUrlSplitedReducer,
-      productionsResumeReducer : state.productionsResumeReducer
+      productionsResumeReducer : state.productionsResumeReducer,
+      selectionResumeReducer : state.selectionResumeReducer
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Productions);

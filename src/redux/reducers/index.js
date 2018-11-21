@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import {fakeActionReducer}  from './pages-reducer'
+import {fakeActionReducer, selectionResumeReducer}  from './pages-reducer'
 
 import {topMsgUrlSplited , productionsResumeReducer}  from './navigation-reducer'
 
@@ -9,7 +9,8 @@ import {topMsgUrlSplited , productionsResumeReducer}  from './navigation-reducer
 const rootReducer = combineReducers({
     fakeActionReducer: fakeActionReducer,
     topMsgUrlSplitedReducer: topMsgUrlSplited,
-    productionsResumeReducer : productionsResumeReducer
+    productionsResumeReducer : productionsResumeReducer,
+    selectionResumeReducer : selectionResumeReducer
 });
 
 export default rootReducer;

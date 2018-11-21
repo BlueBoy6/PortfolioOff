@@ -12,40 +12,41 @@ $breakpoints: (
     box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.4);
 }
 
+.container-menu{
 
-.menu{
-    position: fixed;
-    bottom: 20px;
-    @include media-min("small"){
-    }
-    @include media-min("medium"){
-        width: 50vw;
-        margin-left: 25vw;
-    }
-    
-    .btn-group{
-        border-radius: 80px;
-        background: linear-gradient(30deg, #6A47A8, #101833);
-        @include shadow-high;
-        .btn{
-            margin-left: 0px;
-            color: #ffffff;
-            span{
-                position: relative;
-                display: block;
-                pointer-events: none;
-            }
-            &:hover span{
-                transition: 0.3s;
+    .menu{
+        position: fixed;
+        bottom: 20px;
+        @include media-min("small"){
+        }
+        @include media-min("medium"){
+            min-width: 800px;
+        }
+        
+        .btn-group{
+            border-radius: 80px;
+            background: linear-gradient(30deg, #6A47A8, #101833);
+            @include shadow-high;
+            .btn{
+                margin-left: 0px;
+                color: #ffffff;
+                span{
+                    position: relative;
+                    display: block;
+                    pointer-events: none;
+                }
+                &:hover span{
+                    transition: 0.3s;
+                }
             }
         }
-    }
-    .btn:last-child {
-        border-top-right-radius: 80px;
-        border-bottom-right-radius: 80px;
-    }
-    .btn:first-child {
-        border-top-left-radius: 80px;
-        border-bottom-left-radius: 80px;
+        .btn:last-child {
+            border-top-right-radius: 80px;
+            border-bottom-right-radius: 80px;
+        }
+        .btn:first-child {
+            border-top-left-radius: 80px;
+            border-bottom-left-radius: 80px;
+        }
     }
 }
