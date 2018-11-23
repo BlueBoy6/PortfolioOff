@@ -2,8 +2,21 @@ import {TweenMax, Power4, Elastic, Expo, Back, TimelineMax} from "gsap/TweenMax"
 
 
 
-export function menuAnimationOpen(){
 
+export function logoOpenSite(){
+    TweenMax.set("#logo",{position: "fixed", zIndex: "9999", height: "50vh", top: "calc((100vh - 50vh) /2)", opacity: "0"});
+    new TimelineMax()
+    .staggerFromTo(".bckg-color", 2.5,{scale : "0",},{ease: Power4.easeOut, scale : "1.8"},0.4)
+    .fromTo("#logo", 0.7,{ rotation : "1440deg",scale : "0.2", opacity: "0"},{ease: Back.easeOut.config(1.7), scale : "1", opacity: "1", rotation : "0deg"},"-=2.2")
+    .to("#logo", 0.7,{height: "94.4px", y: "-220%", x: "-54%"},"-=0.5")
+    .to("#logo", 0.01,{position: "relative", zIndex: "9999", height: "100%", top: "0", y: "0%", x: "0%"})
+    .fromTo(".bckg-color", 0.7,{opacity: "1" },{ opacity: "0"})
+    .to('.back-logo', 0.01,{display:"none"})
+    
+    ;
+}
+
+export function menuAnimationOpen(){
     new TimelineMax()
     .fromTo(".menu .menu-group", 0.3, {top : "100vh", scale : "0.2",  opacity: "0"},{ ease: Expo.easeOut, top : "10vh", scale : "1" , opacity: "1"})
     .staggerFromTo(".menu .menu-group .btn", 0.3,{y: "-20px", opacity: "0" },{ ease: Back.easeOut.config(1.7), x: "0px", opacity: "1"}, 0.05);
@@ -30,13 +43,15 @@ export function popUpAnimIn(item, time, delay){
 export function popUpAnimOut(item, time, delay){
     new TimelineMax().fromTo(item, time, {scale : "1.8" , opacity: "0"},{ ease: Expo.easeOut, scale : "1" , opacity: "1"},delay);
 }
-export function staggerBottom(target){
+export function staggerBottom(target, delay){
     TweenMax.set(target, {y:"-20px", opacity: "0"});
     if(target === ".coat .letter"){
-        new TimelineMax()
-        .staggerFromTo(target, 0.5, {y : "-20px", opacity: "0"},{ ease: Power4.easeOut, y : "0px" , opacity: "1"}, 0.05)
-        .to(".coat1",0.05, {opacity : "0"})
-        .to(".coat2",0.05, {opacity : "0"})
+        setTimeout(()=>{
+            new TimelineMax()
+                .staggerFromTo(target, 0.5, {y : "-20px", opacity: "0"},{ ease: Power4.easeOut, y : "0px" , opacity: "1"}, 0.05)
+                .to(".coat1",0.05, {opacity : "0"})
+                .to(".coat2",0.05, {opacity : "0"});
+        },delay)
     }else{
         TweenMax.staggerFromTo(target, 0.5, {y : "-20px", opacity: "0"},{ ease: Power4.easeOut, y : "0px" , opacity: "1"}, 0.075);
     }

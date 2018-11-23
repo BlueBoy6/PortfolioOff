@@ -1,7 +1,7 @@
 [
     {
         "icon" : "",
-        "name" : "Home",
+        "name" : "Accueil",
         "link" : "/"
     },
     {
@@ -13,11 +13,6 @@
         "icon" : "",
         "name" : "A propos de moi",
         "link" : "/me"
-    },
-    {
-        "icon" : "",
-        "name" : "Mes stacks",
-        "link" : "/stacks"
     },
     {
         "icon" : "",

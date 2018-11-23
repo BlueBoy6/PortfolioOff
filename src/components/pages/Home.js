@@ -14,9 +14,17 @@ class Home extends Component {
         this.props.topMsgAction('World')
     }
     componentDidMount(){
-        staggerBottom(".coat .letter")
-        popUpAnimIn(".first-presentation .name", 1.2, 0.3)
-        popUpAnimOut(".first-presentation .dev", 1.2, 0.3)
+        console.log("le props interessant",this.props.pageLoaded)
+        if(this.props.pageLoaded){
+            staggerBottom(".coat .letter", 0)
+            popUpAnimIn(".first-presentation .name", 1.2, 0.3)
+            popUpAnimOut(".first-presentation .dev", 1.2, 0.3)
+        }else{
+            staggerBottom(".coat .letter",4000);
+            popUpAnimIn(".first-presentation .name", 1.2, 5);
+            popUpAnimOut(".first-presentation .dev", 1.2, 4.2);
+        }
+        
     }
     componentDidUpdate(){
         //staggerBottom(".coat .letter")
