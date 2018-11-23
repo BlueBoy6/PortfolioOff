@@ -22,8 +22,8 @@ class productionPresentation extends Component {
         this.props.selectionResume(this.props.match.params.id);
     }
     componentDidMount(){
-        console.log(this.props.selectionResumeReducer)
-        //this.props.topMsgAction("Fake Netflix");
+        console.log(this.props.selectionResumeReducer);
+        setTimeout(()=>{this.props.topMsgAction(this.props.selectionResumeReducer.title)})
         popUpAnimIn(".header", 0.7);
         bottomSlowIn(".project-presentation", 0.7,);
     }
@@ -32,20 +32,24 @@ class productionPresentation extends Component {
     }
 
     render() {
+        if(this.props.selectionResumeReducer){
 
-        const title = this.props.selectionResumeReducer && this.props.selectionResumeReducer.title;
-        const tags = this.props.selectionResumeReducer && this.props.selectionResumeReducer.tags;
-        const presentation = this.props.selectionResumeReducer && this.props.selectionResumeReducer.presentation;
-        const content = this.props.selectionResumeReducer && this.props.selectionResumeReducer.content;
+        }
+        const title = this.props.selectionResumeReducer.title;
+        const tags =this.props.selectionResumeReducer.tags;
+        const presentation =  this.props.selectionResumeReducer.presentation;
+        const content =this.props.selectionResumeReducer.content;
+        const coverImg = this.props.selectionResumeReducer.coverImg;
+        
 
         
 
     return (
         <div id="page">
-            <HeaderPresentation title={`${title}`} bckg={`/img/production/kissmybeer/main-img.jpg`}>
+            <HeaderPresentation title={`${title}`} bckg={coverImg}>
                 {tags && <ListBadges id={`badges-production`} className={`technos mt-5`} badges={tags}/>}
             </HeaderPresentation>
-            <section className='container p-3 pb-5 mb-5'>
+            <section className='container p-3 pb-lg-5 mb-lg-5'>
                 <div className='project-presentation my-5'>
                     <img className="quotes" alt="quotes-icon" src="/img/ico/quotes.png" />
                     <div className='row shadow1'>

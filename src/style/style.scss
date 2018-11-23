@@ -76,31 +76,92 @@ $radius: 30px;
     line-height: 1rem;
 }
 @mixin fontSize1{
-    font-size: 1rem;
-    line-height: 1rem;
+    @include media-min("small") {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+    @include media-min("medium") {
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+    }
+    @include media-min("large") {
+        font-size: 1rem;
+        line-height: 1rem;
+    }
 }
 @mixin fontSize2{
-    font-size: 2rem;
-    line-height: 2rem;
+    @include media-min("small") {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+    @include media-min("medium") {
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+    }
+    @include media-min("large") {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
 }
 @mixin fontSize3{
-    font-size: 3rem;
-    line-height: 3rem;
+    @include media-min("small") {
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
+    @include media-min("medium") {
+        font-size: 2.5rem;
+        line-height: 2.8rem;
+    }
+    @include media-min("large") {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
 }
 @mixin fontSize4{
-    font-size: 5rem;
-    line-height: 4.5rem;
+    @include media-min("small") {
+        font-size: 2.1rem;
+        line-height: 2.3rem;
+    }
+    @include media-min("medium") {
+        font-size: 3rem;
+        line-height: 3.5rem;
+    }
+    @include media-min("large") {
+        font-size: 5rem;
+        line-height: 4.5rem;
+    }
 }
 @mixin fontSizeCustom($_size){
     font-size: $_size;
     line-height: $_size;
 }
+@mixin fontColorWhite{color: #ffffff;}
+@mixin fontColorYellow{color: #f1c965;}
 @mixin transition1{ transition: 0.15s ease-out; }
 /*  
 
 ============================   INITIALIZE   ============================
 
 */
+
+.pixelCibler{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background: #ffffff;
+    padding: 3px;
+    border: solid 4px #2AF598;
+    border-radius : 5px;
+    font-size: 14px;
+    line-height: 18px;
+
+}
+
+#root{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
 .button-group .button:first-child{
     @include radius-left;
     border-left: none;
@@ -113,6 +174,15 @@ $radius: 30px;
     border: none;
     color: rgb(104, 70, 166);
 }
+
+.pins{
+    @include radius;
+    @include media-min("small") {
+        display: inline-block;
+    }
+}
+
+
 .button{
     border-left: solid rgb(104, 70, 166) 1px;
 }
@@ -131,10 +201,6 @@ $radius: 30px;
 }
 .letter.mr-1{display: inline;}
 
-.pins{
-    @include radius
-}
-
 
 
 
@@ -150,13 +216,15 @@ h1{margin:0;}
 .brushfont{ font-family: 'Gloss And Bloom', sans-serif; }
 .secNormalFont{ font-family: 'Josefin Sans', sans-serif; }
 
+
 .fs_1{@include fontSize1;}
 .fs_2{@include fontSize2;}
 .fs_3{@include fontSize3;}
 .fs_4{@include fontSize4;}
 .fs_c{@include fontSizeCustom(11rem);}
 
-.fc_w{color: #ffffff;}
+.fc_w{@include fontColorWhite}
+.fc_y{@include fontColorYellow}
 
 .gradientDark{ @include gradientViolet}
 .gradientLight{@include gradientYellow}
@@ -179,43 +247,85 @@ html{
     body{
         background: #101833;
         font-family: 'Raleway', sans-serif;
-        font-size: 18px;
+        
+        @include media-min("small"){
+            font-size: 13px;
+        }
+        @include media-min("medium"){
+            font-size: 18px;
+        }
+        @include media-min("large"){
+        }
     }
     #ovfxh{
         overflow-x: hidden;
-	    overflow-y: hidden;
+	    
         @include radius-top;
         @include gradientYellow;
         @include media-min("small"){
+            width: 100vw; 
+            height: 90vh;
+            overflow-y: hidden;
         }
         @include media-min("medium"){
+            overflow-y: hidden;
             width: 100vw; 
             height: 84vh;
         }
     }
     #page {
         height: 100%;
-        width: calc(100% + 17px);
         overflow-x: hidden;
         overflow-y: scroll;
+        @include media-min("small"){
+            width: 100vw;
+        }
+        @include media-min("medium"){
+            width: calc(100% + 17px);
+        }
+        @include media-min("large"){
+
+        }
     }
 }
 
 .catch-top-app{
     position: relative;
-    height: 10vh;
-    margin-bottom: 3vh;
-    margin-top: 3vh;
+    @include media-min("small"){
+        height: 6vh;
+        margin-bottom: 2vh;
+        margin-top: 2vh;
+    }
+    @include media-min("medium"){
+        height: 10vh;
+        margin-bottom: 3vh;
+        margin-top: 3vh;
+    }
+    @include media-min("large"){
+        height: 10vh;
+        margin-bottom: 3vh;
+        margin-top: 3vh;
+    }
     .catch{
         font-family: 'Josefin Sans', sans-serif;
         @include fontSize2;
         color: #ffffff;
+       
     }
     .name{
         padding-top: 15px;
         font-family: 'Gloss And Bloom', sans-serif;
         @include fontSize3;
         color: #f1c965;
+        @include media-min("small"){
+            padding-top: 6px;
+        }
+        @include media-min("medium"){
+
+        }
+        @include media-min("large"){
+
+        }
     }
     .letter{
         position: relative;
@@ -242,12 +352,23 @@ html{
     }
     .crea{
         @include brushfont;
-        @include fontSizeCustom(15rem);
         z-index: 0;
         position: absolute;
         width: 100%;
-        top: calc(50% - 7rem);
+        
         color: #f7cb59;
+        @include media-min("small"){
+            top: calc(50% - 2rem);
+            left: 0px;
+            @include fontSizeCustom(5rem);
+        }
+        @include media-min("medium"){
+
+        }
+        @include media-min("large"){
+            top: calc(50% - 7rem);
+            @include fontSizeCustom(15rem);
+        }
         .coat {
             position: absolute;
             left: 0;

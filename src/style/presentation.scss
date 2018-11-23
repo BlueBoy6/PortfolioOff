@@ -97,6 +97,7 @@ $radius: 30px;
     font-size: $_size;
     line-height: $_size;
 }
+@mixin fontColorWhite{color: #ffffff;}
 @mixin transition1{ transition: 0.15s ease-out; }
 
 
@@ -129,19 +130,27 @@ $radius: 30px;
         background-size: cover; 
     }
 }
-.badges-production{
-
-}
 .project-presentation{
     position: relative;
     font-style: italic;
     .quotes, .quotes-in {
         position: absolute;
-        height: 130%;
-        top: -40%;
+        
         opacity: 0.5;
         left: -40px;
         filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 1));
+        @include media-min("small"){
+            height: 56%;
+            top: -23%;
+        }
+        @include media-min("medium"){
+            height: 130%;
+            top: -40%;
+        }
+        @include media-min("large"){
+            height: 130%;
+            top: -40%;
+        }
     }
     .quotes-in{
         opacity: 0.9;

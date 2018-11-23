@@ -12,7 +12,7 @@ export default class ListBadges extends Component {
       <div id={`${this.props.id}`} className={`${this.props.className}`}>
         {
           this.props.badges.map((badge,i)=>{
-            return <span key={i} className="pins mr-2 p-2 shadow1"> {badge} </span>
+            return <span key={i} className="pins mb-2  mr-2 p-2 shadow1"> {badge} </span>
           })
         }
       </div>

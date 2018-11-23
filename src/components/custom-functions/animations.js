@@ -1,5 +1,21 @@
 import {TweenMax, Power4, Elastic, Expo, Back, TimelineMax} from "gsap/TweenMax";
 
+
+
+export function menuAnimationOpen(){
+
+    new TimelineMax()
+    .fromTo(".menu .menu-group", 0.3, {top : "100vh", scale : "0.2",  opacity: "0"},{ ease: Expo.easeOut, top : "10vh", scale : "1" , opacity: "1"})
+    .staggerFromTo(".menu .menu-group .btn", 0.3,{y: "-20px", opacity: "0" },{ ease: Back.easeOut.config(1.7), x: "0px", opacity: "1"}, 0.05);
+}
+export function menuAnimationClose(){
+    new TimelineMax()
+    .fromTo(".menu .menu-group .btn", 0.1,{x: "0px", opacity: "1"},{x: "-20px", opacity: "0" })
+    .fromTo(".menu .menu-group ", 0.2,{ ease: Expo.easeOut, scale : "1" , opacity: "1"}, {scale : "0.2",  opacity: "0"});
+}
+
+
+
 export function staggerAnimIn(item){
     var tl = new TimelineMax({paused: true})
     var winWidth = window.innerWidth;
@@ -68,3 +84,4 @@ export function fakeWrite(target){
         
     }) 
 }
+

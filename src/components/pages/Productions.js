@@ -26,7 +26,6 @@ class Productions extends Component {
     
   }
 
-
   render() {
 
     return (

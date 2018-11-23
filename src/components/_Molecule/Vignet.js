@@ -36,7 +36,7 @@ class Vignet extends Component {
     return (
     <div className='vignet-container mb-4'>
         <Link style={{textDecoration: "none"}} to={`/productions/${vignet.id}`}>
-            <div onClick={()=>{this.redirection(vignet.id)}} style={{backgroundImage :`url(${vignet.coverImg})`}} className={`vignet vignet${vignet.id} radius shadow2`}>
+            <div onClick={()=>{this.redirection(vignet.id)}} style={{backgroundImage :`url(${vignet.coverImg})`, backgroundSize : "cover"}} className={`vignet vignet${vignet.id} radius shadow2`}>
                 <div className='py-5 px-4'>
                     <div className="vignet-fader" ></div>
                     <div className='date fc_w mb-3'>{vignet.date}</div>

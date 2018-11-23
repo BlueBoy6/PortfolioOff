@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 // ========== VARIOUS COMPONENTS IMPORTS
 import Menu from './components/Menu'
@@ -13,7 +13,6 @@ import Stacks from './components/pages/Stacks'
 import NoMatch from './components/pages/NoMatch'
 import productionPresentation from './components/_Organism/production-presentation'
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 
 // ========== STYLES IMPORTS
@@ -25,11 +24,14 @@ export default class App extends Component {
 
   render() {
 
+    window.addEventListener('resize', ()=>{
+      document.querySelector(".pixelCibler").innerHTML = `${window.innerWidth} px`
+    })
     
     return (
       <div className='container-app'>
+      <div className="pixelCibler">{`${window.innerWidth} px`}</div>
         <div className="App">
-
           <div className='w-100 h-100 render-page'>
             <div className='container-page'>
               <TopMessage />
@@ -39,7 +41,7 @@ export default class App extends Component {
                     <Route path="/me" component={AboutMe}/>
                     <Route exact path="/productions" component={Productions}/>
                     <Route path="/productions/:id" component={productionPresentation}/>
-                    <Route path="/stacks" component={Stacks}/>
+                    <Route path="/speed-think" component={Home}/>
                     <Route path="*" component={NoMatch}/>
                   </Switch>
               </div>
