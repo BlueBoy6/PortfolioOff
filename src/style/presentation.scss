@@ -33,7 +33,7 @@ $breakpoints: (
     }
 }
 
-$radius: 30px;
+$radius: 50px;
 
 @mixin radius{ border-radius: $radius; }
 @mixin radius-right{ border-radius: 0 $radius $radius 0; }
@@ -110,15 +110,27 @@ $radius: 30px;
 
 
 .header{
-    height: 50vh;
+    
     width: 100%;
-    left: 15px;
     position: relative;
     z-index : 999;
-    background-size: cover;
+    display: flex;
+    align-items: center;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+    background-position: 0% 50%!important;
     transform-origin: 50% 0%!important;
     overflow: hidden;
     @include radius;
+    @include media-min("small"){
+        height: 90vh;
+    }
+    @include media-min("medium"){
+        height: 84vh;
+    }
+    @include media-min("large"){
+        height: 84vh;
+    }
     .title{ text-align: center; position: relative; z-index : 999;}
     .vignet-fader{
         position: absolute;

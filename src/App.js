@@ -11,7 +11,7 @@ import AboutMe from './components/pages/AboutMe'
 import Productions from './components/pages/Productions'
 import Stacks from './components/pages/Stacks'
 import NoMatch from './components/pages/NoMatch'
-import productionPresentation from './components/_Organism/production-presentation'
+import ProductionPresentation from './components/_Organism/Production-presentation'
 
 
 
@@ -54,12 +54,12 @@ export default class App extends Component {
               <TopMessage />
               <div id='ovfxh'>
                   <Switch>
-                    <Route exact path="/" render={()=>{return <Home pageLoaded={this.state.pageLoaded} />}}/>
-                    <Route path="/me" component={AboutMe}/>
-                    <Route exact path="/productions" component={Productions}/>
-                    <Route path="/productions/:id" component={productionPresentation}/>
-                    <Route path="/speed-think" component={Home}/>
-                    <Route path="*" component={NoMatch}/>
+                    <Route exact path="/" render={(match)=>{return <Home pageLoaded={this.state.pageLoaded} />}}/>
+                    <Route path="/me"  render={(match)=>{return <AboutMe pageLoaded={this.state.pageLoaded} />}}/>
+                    <Route exact path="/productions"  render={(match)=>{return <Productions router={match} pageLoaded={this.state.pageLoaded} />}}/>
+                    <Route path="/productions/:id" render={(match)=>{return <ProductionPresentation router={match} pageLoaded={this.state.pageLoaded} />}}/>
+                    <Route path="/speed-think" render={(match)=>{return <Home router={match} pageLoaded={this.state.pageLoaded} />}}/>
+                    <Route path="*" render={()=>{return <Home pageLoaded={this.state.pageLoaded} />}}/>
                   </Switch>
                   <Menu />
               </div>

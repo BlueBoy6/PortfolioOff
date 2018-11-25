@@ -11,6 +11,8 @@ import {staggerBottom, popUpAnimOut, popUpAnimIn} from '../custom-functions/anim
 class Home extends Component {
 
     componentWillMount(){
+        console.log('========props============')
+        console.log(this.props)
         this.props.topMsgAction('World')
     }
     componentDidMount(){
@@ -21,7 +23,8 @@ class Home extends Component {
             popUpAnimOut(".first-presentation .dev", 1.2, 0.3)
         }else{
             staggerBottom(".coat .letter",4000);
-            popUpAnimIn(".first-presentation .name", 1.2, 5);
+            //popUpAnimIn(".first-presentation .name", 1.2, 5);
+            popUpAnimOut(".first-presentation .name", 1.2, 4);
             popUpAnimOut(".first-presentation .dev", 1.2, 4.2);
         }
         

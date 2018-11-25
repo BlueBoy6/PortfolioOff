@@ -19,6 +19,8 @@ class Productions extends Component {
   }
 
   componentWillMount(){
+    console.log('========props============')
+    console.log(this.props)
     this.props.topMsgAction("Productions");
     this.props.productionsResumeHead();
   }

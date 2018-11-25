@@ -14,7 +14,7 @@ export default class HeaderPresentation extends Component {
     }
     render() {
         return (
-            <section style={{background : `url(${this.props.bckg}`}} className=" row header align-items-center shadow1">
+            <section style={{background : `url(${this.props.bckg}`}} className="header shadow1">
                 <div className='vignet-fader'>
                     
                 </div>

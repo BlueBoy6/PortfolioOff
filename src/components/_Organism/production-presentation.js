@@ -16,10 +16,12 @@ import {topMsgAction, selectionResume } from "../../redux/actions/index"
 // ========== ANIMATIONS IMPORTS
 import {popUpAnimIn, bottomSlowIn} from "../custom-functions/animations"
 
-class productionPresentation extends Component {
+class ProductionPresentation extends Component {
 
     componentWillMount(){
-        this.props.selectionResume(this.props.match.params.id);
+        console.log('========props============')
+        console.log(this.props)
+        this.props.selectionResume(this.props.router.match.params.id);
     }
     componentDidMount(){
         console.log(this.props.selectionResumeReducer);
@@ -32,9 +34,7 @@ class productionPresentation extends Component {
     }
 
     render() {
-        if(this.props.selectionResumeReducer){
-
-        }
+        
         const title = this.props.selectionResumeReducer.title;
         const tags =this.props.selectionResumeReducer.tags;
         const presentation =  this.props.selectionResumeReducer.presentation;
@@ -80,4 +80,4 @@ const mapStateToProps = (state) => {
       selectionResumeReducer : state.selectionResumeReducer
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(productionPresentation);
+export default connect(mapStateToProps,mapDispatchToProps)(ProductionPresentation);

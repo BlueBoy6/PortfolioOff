@@ -33,7 +33,7 @@ $breakpoints: (
     }
 }
 
-$radius: 30px;
+$radius: 50px;
 
 @mixin radius{ border-radius: $radius; }
 @mixin radius-right{ border-radius: 0 $radius $radius 0; }
@@ -146,12 +146,16 @@ $radius: 30px;
 #logoTop{
     #logo{
         transform-origin: 50% 50%;
-        .logo{
-            stroke: red;
+        .logo1{
+            stroke: #2AF598;
             stroke-width: 3px;
-            fill-opacity: 1;
-            stroke-dasharray: 2300;
-            stroke-dashoffset: 2300;
+            height :100%;
+        }
+        .logo2{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height :100%;
         }
     }
     .back-logo{
@@ -168,21 +172,33 @@ $radius: 30px;
             height: 100vw;
             width: 100vw;
         }
-        .bckg-color{
+        .bckg-color-back{
             height: 100%;
             width: 100%;
             position: absolute;
             top: 0;
             left: 0;
+            background: #141414;
+        }
+        .bckg-color{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
             border-radius: 5000px;
-
-            &:nth-child(1){
-                background: #6A47A8;
+            @include media-min("small") {
+                top: -25vh;
+            }
+            @include media-min("medium") {
+                top: -50vh;
             }
             &:nth-child(2){
-                background: #2AF598;
+                background: #6A47A8;
             }
             &:nth-child(3){
+                background: #2AF598;
+            }
+            &:nth-child(4){
                 background: #141414;
             }
         }

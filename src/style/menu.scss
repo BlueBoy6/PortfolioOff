@@ -33,7 +33,7 @@ $breakpoints: (
     }
 }
 
-$radius: 30px;
+$radius: 50px;
 
 @mixin radius{ border-radius: $radius; }
 @mixin radius-right{ border-radius: 0 $radius $radius 0; }
