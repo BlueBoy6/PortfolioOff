@@ -9,7 +9,7 @@ export function logoOpenSite(){
 
     new TimelineMax()
     .staggerFromTo(".bckg-color", 2.5,{scale : "0",},{ease: Power4.easeInOut, scale : "1.15"},0.4)
-    .fromTo(" #logo .logo1", 3,
+    .fromTo(" #logo .logo1", 2,
         { fillOpacity: "0", strokeDasharray: "2300", strokeDashoffset: "2300"},
         {ease: Expo.easeInOut, fillOpacity: "0",strokeDasharray: "2300", strokeDashoffset: "0"}, "-=2")
 
@@ -28,13 +28,14 @@ export function logoOpenSite(){
 
 export function menuAnimationOpen(){
     new TimelineMax()
-    .fromTo(".menu .menu-group", 0.3, {top : "100vh", scale : "0.2",  opacity: "0"},{ ease: Expo.easeOut, top : "10vh", scale : "1" , opacity: "1"})
-    .staggerFromTo(".menu .menu-group .btn", 0.3,{y: "-20px", opacity: "0" },{ ease: Back.easeOut.config(1.7), x: "0px", opacity: "1"}, 0.05);
+    .fromTo(".menu .menu-group", 0.3, {top : "100vh", scale : "0.2",  opacity: "0"},{ ease: Power4.easeInOut, top : "10vh", scale : "1" , opacity: "1"})
+    .staggerFromTo(".menu .menu-group .btn", 0.3,{y: "-20px", opacity: "0" },{ ease: Power4.easeInOut, y: "0px", opacity: "1"}, 0.05);
 }
 export function menuAnimationClose(){
     new TimelineMax()
     .fromTo(".menu .menu-group .btn", 0.1,{x: "0px", opacity: "1"},{x: "-20px", opacity: "0" })
-    .fromTo(".menu .menu-group ", 0.2,{ ease: Expo.easeOut, scale : "1" , opacity: "1"}, {scale : "0.2",  opacity: "0"});
+    .fromTo(".menu .menu-group", 0.2,{ ease: Expo.easeOut, scale : "1" , opacity: "1"}, {scale : "0.2",  opacity: "0"})
+    .to(".menu .menu-group", 0.01, {top : "100vh"});
 }
 
 

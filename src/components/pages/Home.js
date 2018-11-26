@@ -22,10 +22,9 @@ class Home extends Component {
             popUpAnimIn(".first-presentation .name", 1.2, 0.3)
             popUpAnimOut(".first-presentation .dev", 1.2, 0.3)
         }else{
-            staggerBottom(".coat .letter",4000);
-            //popUpAnimIn(".first-presentation .name", 1.2, 5);
-            popUpAnimOut(".first-presentation .name", 1.2, 4);
-            popUpAnimOut(".first-presentation .dev", 1.2, 4.2);
+            staggerBottom(".coat .letter",5100);
+            popUpAnimOut(".first-presentation .name", 1.2, 5.1);
+            popUpAnimOut(".first-presentation .dev", 1.2, 5.3);
         }
         
     }

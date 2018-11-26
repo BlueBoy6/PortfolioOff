@@ -16,7 +16,7 @@ export default class HeaderPresentation extends Component {
         return (
             <section style={{background : `url(${this.props.bckg}`}} className="header shadow1">
                 <div className='vignet-fader'>
-                    
+                   <div className="scrollToBottom"><span>Scroll</span></div> 
                 </div>
                 <div className='title w-100'>
                     <h1 className="brushfont fs_4 fc_w">{this.props.title.split('').map((letter,i)=>(

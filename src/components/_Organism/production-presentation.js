@@ -19,8 +19,7 @@ import {popUpAnimIn, bottomSlowIn} from "../custom-functions/animations"
 class ProductionPresentation extends Component {
 
     componentWillMount(){
-        console.log('========props============')
-        console.log(this.props)
+
         this.props.selectionResume(this.props.router.match.params.id);
     }
     componentDidMount(){
@@ -34,13 +33,9 @@ class ProductionPresentation extends Component {
     }
 
     render() {
-        
-        const title = this.props.selectionResumeReducer.title;
-        const tags =this.props.selectionResumeReducer.tags;
-        const presentation =  this.props.selectionResumeReducer.presentation;
-        const content =this.props.selectionResumeReducer.content;
-        const coverImg = this.props.selectionResumeReducer.coverImg;
-        
+
+        const {title, tags, presentation, content, coverImg, librairies } = this.props.selectionResumeReducer
+        console.log(this.props.selectionResumeReducer)
 
         
 
@@ -58,6 +53,14 @@ class ProductionPresentation extends Component {
                         <p>
                             {presentation && presentation} 
                         </p>
+                        </div>
+                    </div>
+                </div>
+                <div className='row mb-5'>
+                    <div className='col'>
+                        <h2>Les librairies utilisés</h2>
+                        <div className='my-3'>
+                            {librairies && <ListBadges className={`technos`} badges={librairies}/>}
                         </div>
                     </div>
                 </div>

@@ -57,7 +57,7 @@ stateMenu(e){
               menuData.map((item,i)=>{
                 var menuLength = menuData.length;
                 return(
-                  <NavLink key={i} style={{height: window.innerWidth > 960 ? "auto" : `calc((90vh - 57px) / ${menuLength})` ,width: window.innerWidth > 960 ? `calc(100%/${menuLength})` : `100%`}} className="btn py-4 align-items-center" to={item.link}>
+                  <NavLink key={i} style={{height: window.innerWidth > 960 ? "auto" : `calc((90vh - 57px) / ${menuLength})` ,width: window.innerWidth > 960 ? `calc(100%/${menuLength})` : `100%`}} className="btn py-4 " to={item.link}>
                     <span>{item.name}</span>
                   </NavLink>
                 )
