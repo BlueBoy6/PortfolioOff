@@ -29,7 +29,7 @@ class ProductionPresentation extends Component {
         bottomSlowIn(".project-presentation", 0.7,);
     }
     componentDidUpdate(){
-
+        console.log("productions found")
     }
 
     render() {
