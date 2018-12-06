@@ -10,23 +10,27 @@ import {topMsgAction,productionsResumeHead, selectionResume } from "../../redux/
 import ListBadges from '../_Atom/ListBadges'
 
 // ========== ANIMATIONS IMPORTS
-import {fakeWrite, staggerBottomSlow,staggerBottomSlowOut, bottomSlowOut, ElasticAppear} from "../custom-functions/animations"
+import {fakeWrite, staggerBottomSlow,staggerBottomSlowOut} from "../custom-functions/animations"
 
 class Vignet extends Component {
 
     componentWillMount(){
     }
     componentDidMount(){
-        staggerBottomSlow(".vignet", ".letter");
+        staggerBottomSlow(".vignet", 0.5, 150);
         fakeWrite(`.vignet${this.props.idx} .brushfont .letter`);
     }
     componentDidUpdate(){
     } 
     redirection(id){
-        staggerBottomSlowOut(".vignet")
+        staggerBottomSlowOut(".vignet", 0.3)
+        const location = {
+            pathname: `/productions/${this.props.vignet.id}`,
+            state: { fromDashboard: true }
+        }
         setTimeout(()=>{
-            this.props.productionsResumeHead(id)
-        },200)
+            this.props.history.push(location)
+        },600)
     }
 
     render() {
@@ -35,15 +39,14 @@ class Vignet extends Component {
 
     return (
     <div className='vignet-container mb-4'>
-        <Link style={{textDecoration: "none"}} to={`/productions/${vignet.id}`}>
             <div onClick={()=>{this.redirection(vignet.id)}} style={{backgroundImage :`url(${vignet.coverImg})`, backgroundSize : "cover"}} className={`vignet vignet${vignet.id} radius shadow2`}>
                 <div className='py-5 px-4'>
                     <div className="vignet-fader" ></div>
                     <div className='date fc_w mb-3'>{vignet.date}</div>
                     <h1 className="title secNormalFont fs_4 fc_w mb-3">{vignet.title}</h1>
-                    {/* =====  Childrens insert just below  ====== */}
-                    {this.props.children}
-                    {/* =====  Childrens insert just above  ====== */}
+                        {/* =====  Childrens insert just below  ====== */}
+                        {this.props.children}
+                        {/* =====  Childrens insert just above  ====== */}
                     <div className='vignet-category'>
                     <div className='brushfont fs_c'>
                         {vignet.category.split('').map((letter,i)=>(
@@ -53,7 +56,6 @@ class Vignet extends Component {
                     </div>
                 </div>
             </div>
-        </Link>
     </div>
     )
   }

@@ -67,19 +67,22 @@ export function staggerBottom(target, delay){
         TweenMax.staggerFromTo(target, 0.5, {y : "-20px", opacity: "0"},{ ease: Power4.easeOut, y : "0px" , opacity: "1"}, 0.075);
     }
 }
-export function staggerBottomSlow(target){
-    TweenMax.staggerFromTo(target, 0.5, { y : "-60px", opacity: 0, scale: "0.85" },{ease: Back.easeOut.config(1.7), y : "0px", opacity: 1, scale: "1" }, 0.15);
+export function staggerBottomSlow(target, time, delay){
+    console.log('=========time animation===========')
+    console.log(time)
+    if(delay === false){ TweenMax.staggerFromTo(target, time, { y : "-60px", opacity: 0, scale: "0.85" },{ease: Back.easeOut.config(1.7), y : "0px", opacity: 1, scale: "1" }, 0.15);} 
+    else{setTimeout(()=>{ TweenMax.staggerFromTo(target, time, { y : "-60px", opacity: 0, scale: "0.85" },{ease: Back.easeOut.config(1.7), y : "0px", opacity: 1, scale: "1" }, 0.15); }, delay)} 
 }
 
-export function staggerBottomSlowOut(target){
-    TweenMax.staggerFromTo(target, 0.5, { y : "0px", opacity: 1, scale: "1" },{ease: Back.easeIn.config(1.7), y : "60px", opacity: 0, scale: "0.85" }, 0.15);
+export function staggerBottomSlowOut(target,time){
+    TweenMax.staggerFromTo(target, time , { y : "0px", opacity: 1, scale: "1" },{ease: Back.easeIn.config(1.7), y : "60px", opacity: 0, scale: "0.85" }, 0.15);
 }
 
 export function bottomSlowIn(target){
     TweenMax.fromTo(target, 0.5, {ease: Back.easeIn.config(1.7), y : "60px", opacity: 0, scale: "0.95" },{ y : "0px", opacity: 1, scale: "1" });
 }
-export function bottomSlowOut(target){
-    TweenMax.fromTo(target, 0.5, { y : "0px", opacity: 1, scale: "1" },{ease: Back.easeIn.config(1.7), y : "60px", opacity: 0, scale: "0.85" });
+export function bottomSlowOut(target, time){
+    TweenMax.fromTo(target, time , { y : "0px", opacity: 1, scale: "1" },{ease: Back.easeIn.config(1.7), y : "60px", opacity: 0, scale: "0.85" });
 }
 
 export function ElasticAppear(target, delay){

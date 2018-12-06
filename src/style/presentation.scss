@@ -125,7 +125,6 @@ $radius: 50px;
     background-position: 0% 50%!important;
     transform-origin: 50% 0%!important;
     overflow: hidden;
-    @include radius;
     @include media-min("small"){
         height: 90vh;
     }
@@ -175,9 +174,8 @@ $radius: 50px;
     font-style: italic;
     .quotes, .quotes-in {
         position: absolute;
-        
         opacity: 0.5;
-        left: -40px;
+        left: -25px;
         filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 1));
         @include media-min("small"){
             height: 56%;
@@ -215,10 +213,36 @@ $radius: 50px;
     }
 }
 
-.project-presentation .row{
+.project-presentation .cadre{
     @include gradientViolet;
     @include coloryellow;
     @include radius;
     overflow: hidden;
     position: relative;
+    p{
+        position: relative;
+        z-index: 999;
+        margin-bottom:0; 
+    }
 }
+
+
+
+  .containerTwo {
+    height: 1600px;
+    background: linear-gradient(red, blue, greenYellow);
+  }
+  .itemPlaced {
+    position: relative;
+    top: 900px;
+    background: white;
+    height: 60px;
+    width: 180px;
+  }
+  #indicator{
+        border-bottom: solid 2px white;
+        position: fixed;
+        z-index: 999999;
+        color: #ffffff;
+        right : 0;
+  }

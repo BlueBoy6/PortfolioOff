@@ -22,7 +22,7 @@ export default class HeaderPresentation extends Component {
                     <h1 className="brushfont fs_4 fc_w">{this.props.title.split('').map((letter,i)=>(
                         <span key={i} className={`letter ${letter === ' ' ? 'mr-1' : ''}`}>{letter}</span>
                         ))}</h1>
-                        {this.props.children}
+                    {this.props.children}
                 </div>
             </section>
         )

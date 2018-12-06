@@ -1,3 +1,4 @@
+
 export const Article2 = {
     id : 2,
     title : "Fake AlloCiné",
@@ -13,12 +14,12 @@ export const Article2 = {
     <div class="article">
         <h2>Fake AlloCiné</h2>
         <div class="row content-part">
-            <div class="row">
+            <div class="row anim-to-top">
                 <div class='col-12'>
                     <img class="img" src="/img/production/fakenetflix/min/fake-allocine.png">
                 </div>
             </div>
-            <div class="row">
+            <div class="row anim-to-top">
                 <div class="col-12">
                     <h3>Résumé</h3>
                     <p>Cette petite web-app est un petit projet d'entrainement. Il utilise des fonctions simples d'usage de l'API The Movie DB par le biais du package Axios. Le développement de ce petit projet m'a également permis de m'initier au cycle de vie de React.</p>
@@ -28,7 +29,6 @@ export const Article2 = {
         </div>
     </div>
                 
-                
-                `
+ `
 };
 

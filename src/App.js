@@ -17,6 +17,7 @@ import ProductionPresentation from './components/_Organism/production-presentati
 
 // ========== STYLES IMPORTS
 import './style/style.scss'
+import './style/animation.scss'
 
 
 // ==========  IMPORTS
@@ -55,9 +56,9 @@ export default class App extends Component {
               <div id='ovfxh'>
                   <Switch>
                     <Route exact path="/" render={(match)=>{return <Home pageLoaded={this.state.pageLoaded} />}}/>
-                    <Route path="/me"  render={(match)=>{return <AboutMe pageLoaded={this.state.pageLoaded} />}}/>
+                    <Route path="/moi"  render={(match)=>{return <AboutMe router={match} pageLoaded={this.state.pageLoaded} />}}/>
                     <Route exact path="/productions"  render={(match)=>{return <Productions router={match} pageLoaded={this.state.pageLoaded} />}}/>
-                    <Route path="/productions/:id" render={(match)=>{return <ProductionPresentation router={match} pageLoaded={this.state.pageLoaded} />}}/>
+                    <Route exact path="/productions/:id" render={(match)=>{return <ProductionPresentation router={match} pageLoaded={this.state.pageLoaded} />}}/>
                     <Route path="/speed-think" render={(match)=>{return <Home router={match} pageLoaded={this.state.pageLoaded} />}}/>
                     <Route path="*" render={()=>{return <Home pageLoaded={this.state.pageLoaded} />}}/>
                   </Switch>

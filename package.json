@@ -4,19 +4,23 @@
   "private": true,
   "dependencies": {
     "gsap": "^2.0.2",
+    "node-sass": "^4.10.0",
     "npm": "^6.4.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-gsap": "^1.1.0",
+    "react-meta-tags": "^0.7.2",
     "react-redux": "^5.1.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
+    "react-scrollmagic": "^2.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "sass-loader": "^7.1.0",
     "scrollbooster": "^1.1.0",
-    "semantic-ui-react": "^0.83.0",
-    "node-sass": "^4.10.0",
-    "sass-loader": "^7.1.0"
+    "scrollmagic": "^2.0.6",
+    "semantic-ui-react": "^0.83.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,6 +38,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    
+    "imports-loader": "^0.8.0"
   }
 }

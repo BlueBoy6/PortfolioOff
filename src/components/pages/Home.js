@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux"
 import {bindActionCreators} from "redux"
+import MetaTags from 'react-meta-tags';
 
 import {topMsgAction} from "../../redux/actions/index"
 import {staggerBottom, popUpAnimOut, popUpAnimIn} from '../custom-functions/animations'
@@ -33,6 +34,16 @@ class Home extends Component {
     const coatCreative = "Créatif".split('').map((letter,i)=><span key={i} className="letter">{letter}</span>);
     return (
         <div id='page'>
+            <MetaTags>
+                <title>Accueil - Portfolio</title>
+                <meta name="description" content="Bienvenue sur mon portfolio, je vais te faire découvrir mon travail, te faire tester de nouveaux bouts de codes ou me recruter qui sait ?" />
+                <meta property="og:url" content={`http://davidsimoessilva.fr/production`} />
+                <meta property="og:title" content="Accueil - Portfolio" />
+                <meta property="og:image" content="/img/production/webdesigner/main-view.jpg" />
+                <meta property="og:type" content="Accueil" />
+                <meta property="og:locale" content="fr_FR" />
+                <meta name="author" content="David Simoes Silva" />
+                </MetaTags>
             <div className='row h-100 align-items-center'>
                 <div className='col-12 first-presentation'>
                     <div className="name">David Simoes Silva</div>

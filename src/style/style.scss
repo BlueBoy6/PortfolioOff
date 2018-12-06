@@ -41,6 +41,7 @@ $radius: 50px;
 @mixin radius-top{ border-radius: $radius $radius 0 0; }
 @mixin radius-bottom{ border-radius: $radius 0 $radius 0;}
 
+@mixin box-shadow-low{box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.6);}
 @mixin box-shadow-high{ box-shadow: 0px 20px 40px 2px rgba(0,0,0,0.4); }
 @mixin textshadow{text-shadow: 0px 1px 1px rgba(0,0,0,0.5);}
 
@@ -68,6 +69,10 @@ $radius: 50px;
 
 @mixin gradientViolet{
     background: linear-gradient(30deg, #6A47A8, #101833);
+    background-size: cover; 
+}
+@mixin gradientGreen{
+    background: linear-gradient(30deg, #2AF598, #00DE79);
     background-size: cover; 
 }
 
@@ -135,6 +140,7 @@ $radius: 50px;
     font-size: $_size;
     line-height: $_size;
 }
+@mixin fontColorBlack{color: #292b2c;}
 @mixin fontColorWhite{color: #ffffff;}
 @mixin fontColorYellow{color: #f1c965;}
 @mixin transition1{ transition: 0.15s ease-out; }
@@ -143,9 +149,12 @@ $radius: 50px;
 ============================   INITIALIZE   ============================
 
 */
+
+
+
 #logoTop{
+    display: none;
     #logo{
-        
         transform-origin: 50% 50%;
         .logo1{
             stroke: #f1c965;
@@ -255,6 +264,7 @@ $radius: 50px;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
+    width: auto;
     &:before{
         content: '';
         position: absolute;
@@ -288,7 +298,134 @@ $radius: 50px;
 }
 .letter.mr-1{display: inline;}
 
-.img{width: 100%;}
+.container-backButton{
+    width: auto;
+    
+}
+.container-button{
+    text-align: center;
+    .customButton{
+        position: relative;
+        display: inline-flex;
+        cursor: pointer;
+        font-weight: 500;
+        @include josefinfont;
+        @include radius;
+        @include box-shadow-low;
+        @include transition1;
+        &:hover{
+            @include transition1;
+            transform: scale(0.98);
+            transform-origin: 50% 50%;
+        }
+    }
+}
+
+.backButton{
+    padding : 20px 70px;
+    color: #6A47A8;
+    font-weight: 500;
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    @include josefinfont;
+    @include radius;
+    @include box-shadow-high;
+    @include transition1;
+    &:hover{
+        @include transition1;
+        transform: scale(0.98);
+        transform-origin: 50% 50%;
+    }
+}
+
+
+.motBarre{
+    position: relative;
+    &:before{
+        content: "";
+        position: absolute;
+        @include gradientGreen;
+        height: 4px;
+        width: calc(100% + 8px);
+        left: -4px;
+        top: calc(50%);
+    }
+}
+
+.motsouligneGreen{
+    position: relative;
+    display: inline-flex;
+    mark{
+        position: relative;
+        z-index: 4;
+        padding: 0;
+        font-weight: 300;
+        background: transparent;
+        color: #292b2c;
+    }
+    mark.bold{
+        font-weight: 600;
+    }
+    &:before{
+        content: "";
+        top: -5%;
+        left : -1%;
+        position: absolute;
+        z-index: 0;
+        width: 102%;
+        height : 105%;
+        background : #00DE79;
+        border-radius: 4px;
+        transform-origin: 50%;
+        transform: rotateZ(-1deg);
+    }
+    &:after{
+        content: "";
+        top: 0%;
+        left : 0%;
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height : 95%;
+        background: #2AF598;
+        border-radius: 4px;
+        transform-origin: 50%;
+        transform: rotateZ(-1.5deg);
+    }    
+}
+
+.lovely{
+    position: relative;
+    font-weight: 700;
+    &:before{
+        content: "";
+        position: absolute;
+        background: url(/img/ico/lovely.png);
+        background-size: cover;
+        height: 31px;
+        width: 63px;
+        left: -10px;
+        top: -21px;
+        
+    }
+}
+.lovely180{
+    position: relative;
+    font-weight: 700;
+    &:before{
+        content: "";
+        position: absolute;
+        background: url(/img/ico/lovely.png);
+        background-size: cover;
+        height: 31px;
+        width: 63px;
+        left: 6px;
+        top: -21px;
+        transform: rotateY(180deg);
+    }
+}
+
 
 
 
@@ -298,7 +435,8 @@ $radius: 50px;
 
 
 h1{margin:0;}
-
+.img{width: 100%;}
+a{@include fontColorBlack; text-decoration: none !important; &:hover{@include fontColorBlack;}}
 .radius{ @include radius;}
 
 .brushfont{ font-family: 'Gloss And Bloom', sans-serif; }
@@ -310,12 +448,14 @@ h1{margin:0;}
 .fs_3{@include fontSize3;}
 .fs_4{@include fontSize4;}
 .fs_c{@include fontSizeCustom(11rem);}
+.smallfont{font-size: 0.75rem;}
 
 .fc_w{@include fontColorWhite}
 .fc_y{@include fontColorYellow}
 
 .gradientDark{ @include gradientViolet}
 .gradientLight{@include gradientYellow}
+.gradientGreen{@include gradientGreen}
 .gradientLightLinear{@include gradientYellowLinear}
 .gradientLightLinear:hover{background-position-x: 100%; @include transition1;}
 
@@ -333,9 +473,6 @@ html{
     min-width: 100vw;
     min-height: 100vh;
     overflow: hidden;
-    a {
-        text-decoration: none !important;
-    }
     body{
         background: #101833;
         font-family: 'Raleway', sans-serif;
@@ -370,7 +507,7 @@ html{
         overflow-x: hidden;
         overflow-y: scroll;
         @include media-min("small"){
-            width: calc(100% + 17px);
+            width: calc(100%);
         }
         @include media-min("medium"){
             width: calc(100% + 17px);
@@ -378,12 +515,14 @@ html{
         @include media-min("large"){
 
         }
+        & > div {
+            padding-bottom: 90px!important;
+        }
     }
 }
 
 .catch-top-app{
     position: relative;
-    
     @include media-min("small"){
         height: 6vh;
         margin-bottom: 2vh;
