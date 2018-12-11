@@ -5,7 +5,7 @@ export const Article2 = {
     coverImg : "/img/production/fakenetflix/main-img.jpg",
     date : "Juillet 2018",
     category : "Développement",
-    tags : ["React", "Javascript", "API themoviedb", "Axios", "JSX"],
+    tags : ["React", "Javascript", "API themoviedb", "Axios", "Training project"],
     technos: ["Javascript", "CSS", "HTML"],
     librairies : ["React", "Axios","Webpack"],
     presentation : "En réalité, le Fake AlloCiné est une mini application proposant un service de bande-annonces. Les données proviennent de l'API theMovieDB. Ce projet était un projet d'inititiation à React. Ce projet était piloté par le cours de Robin Lebhar, ReactJS + Redux pour les débutant, sur la plateforme d'apprentissage vidéo Udemy.",

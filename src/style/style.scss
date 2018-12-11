@@ -144,6 +144,8 @@ $radius: 50px;
 @mixin fontColorWhite{color: #ffffff;}
 @mixin fontColorYellow{color: #f1c965;}
 @mixin transition1{ transition: 0.15s ease-out; }
+
+
 /*  
 
 ============================   INITIALIZE   ============================
@@ -151,9 +153,7 @@ $radius: 50px;
 */
 
 
-
 #logoTop{
-    display: none;
     #logo{
         transform-origin: 50% 50%;
         .logo1{

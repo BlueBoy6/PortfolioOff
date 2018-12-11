@@ -4,7 +4,7 @@ export const Article3 = {
     coverImg : "/img/production/kissmybeer/main-img.jpg",
     date : "En cours de développement",
     category : "Développement",
-    tags : ["React", "Javascript", "OpenStreetMap", "CSS", "JSX"],
+    tags : ["React", "Beer-App", "OpenStreetMap", "SCSS", "Web-App"],
     technos: ["Javascript", "CSS", "HTML"],
     librairies : ["React", "Axios", "GSAP","React-Router 4","React-Redux", "Dropzone", "ScrollBooster", "Semantic-Ui","Leaflet","Bootstrap", "fontawesome", "Create-React-App"],
     presentation : "Kiss my beer est un projet que j'ai développer afin de pourvoir mettre en pratique mes connaissances en React. Cet web-app a pour pour vocation de permettre la création d'un répertoire personnel de bières ainsi que de bars.",
