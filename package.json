@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "gsap": "^2.0.2",
+    "gsap": "^3.6.0",
     "node-sass": "^4.10.0",
     "npm": "^6.4.1",
     "react": "^16.6.0",
